@@ -1,0 +1,99 @@
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  background: #f4f6f8;
+  margin: 0;
+  padding: 0;
+}
+h1 {
+  color: #388e3c;
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  font-weight: 700;
+}
+.plantas-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+}
+.card-planta {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px #0002;
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  width: 350px;
+  max-width: 95vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.2s;
+}
+.card-planta:hover {
+  box-shadow: 0 8px 32px #0003;
+}
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2e7d32;
+  margin-bottom: 1rem;
+}
+.umidade-nivel {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #1976d2;
+  margin-bottom: 0.5rem;
+}
+.umidade-label {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+.ultima-hora {
+  font-size: 0.95rem;
+  color: #888;
+  margin-bottom: 1.5rem;
+}
+.grafico-container {
+  width: 100%;
+  max-width: 320px;
+  height: 200px;
+}
+@media (max-width: 800px) {
+  .plantas-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+  .card-planta {
+    width: 98vw;
+    padding: 1.2rem 0.5rem 1rem 0.5rem;
+  }
+  .grafico-container {
+    max-width: 95vw;
+  }
+}
+.chat-container {
+  margin: 0 auto 2rem auto;
+  max-width: 700px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px #0001;
+  padding: 1.5rem 1rem 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#chat-form input[type="text"]:focus {
+  outline: 2px solid #388e3c;
+}
+#chat-output {
+  margin-top: 1rem;
+  min-height: 2.2rem;
+}
+.card-planta canvas[id^="gauge-"] {
+  display: block;
+  margin: 0 auto;
+} 
