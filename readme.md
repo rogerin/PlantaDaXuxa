@@ -54,6 +54,41 @@ Utilizando um **ESP32** com sensores de umidade do solo, a planta monitora seu p
 
 ---
 
+## Fluxo N8N
+![Descrição da imagem](assets/img/fluxo.png)
+
+## SQL do Supabase
+```SQL
+-- Cria a tabela de plantas
+create table public.plantas (
+  id uuid primary key default gen_random_uuid(),
+  nome text not null
+);
+
+-- Cria a tabela de logs de umidade
+create table public.logs (
+  id uuid primary key default gen_random_uuid(),
+  planta_id uuid references public.plantas(id) on delete cascade,
+  umidade numeric not null,
+  hora timestamp with time zone default now()
+);
+
+create or replace view public.logs_com_plantas as
+select
+  logs.id as log_id,
+  logs.planta_id,
+  plantas.nome as nome_planta,
+  logs.umidade,
+  logs.hora
+from
+  logs 
+  JOIN plantas ON logs.planta_id = plantas.id
+ORDER BY hora DESC
+LIMIT 50;
+
+```
+
+---
 ## 📁 Em breve:
 
 - Gráfico histórico por planta com frontend web
